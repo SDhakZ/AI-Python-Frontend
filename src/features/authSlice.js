@@ -4,14 +4,7 @@ import { tokenManager } from "../utils/tokenManager";
 import { userManager } from "../utils/userManager";
 import { login } from "../thunks/authThunk";
 
-// Initial State
-const user = userManager.loadUser();
-const { token } = tokenManager.loadTokens();
-
 const initialState = {
-  isAuthenticated: !!token,
-  token: token,
-  user: user,
   usernameError: null,
   passwordError: null,
   loading: false,
@@ -24,9 +17,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     // ----------------- Dummy login (remove after api integration) ------------------- //
-    login(state) {
-      state.isAuthenticated = true;
-    },
+
     // ----------------- Dummy login ------------------- //
     logout(state) {
       state.isAuthenticated = false;
@@ -34,27 +25,6 @@ const authSlice = createSlice({
       state.loading = false;
       userManager.removeUser();
       tokenManager.removeTokens();
-    },
-    clearUsernameError: (state) => {
-      state.usernameError = null;
-    },
-    clearPasswordError: (state) => {
-      state.passwordError = null;
-    },
-    setLoading(state, action) {
-      state.loading = action.payload;
-    },
-    checkAuth(state) {
-      const { token } = tokenManager.loadTokens();
-      const user = userManager.loadUser();
-      if (token && user) {
-        state.isAuthenticated = true;
-        state.user = user;
-      } else {
-        state.isAuthenticated = false;
-        state.user = null;
-      }
-      state.loading = false;
     },
   },
   extraReducers: (builder) => {
@@ -79,15 +49,7 @@ const authSlice = createSlice({
       state.loading = false;
     };
 
-    builder
-      // Login
-      .addCase(login.pending, handlePending)
-      .addCase(login.fulfilled, (state, action) => {
-        handleAuthSuccess(state, action);
-      })
-      .addCase(login.rejected, (state, action) => {
-        handleRejected(state, action, "Login failed.");
-      });
+    builder;
   },
 });
 

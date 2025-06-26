@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/authSlice";
-import bmiReducer from "../features/bmiSlice";
+import aiReducer from "../features/aiSlice";
+import navbarReducer from "../features/navbarSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    bmi: bmiReducer,
+    ai: aiReducer,
+    navbar: navbarReducer,
   },
 });

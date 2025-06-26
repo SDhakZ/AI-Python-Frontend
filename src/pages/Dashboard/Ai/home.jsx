@@ -1,0 +1,52 @@
+import React from "react";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setNavbarTitle } from "../../../features/navbarSlice";
+
+export default function AIHome() {
+  const projects = [
+    {
+      id: 1,
+      name: "BMI Perceptron",
+      description:
+        "A simple perceptron model to predict BMI based on input features with python.",
+      href: "/dashboard/ai/bmi-perceptron",
+    },
+    {
+      id: 2,
+      name: "And Or Gate Perceptron",
+      description:
+        "A perceptron model to predict the output of AND and OR gates based on input features with python.",
+      href: "/dashboard/ai/perceptron-gate",
+    },
+  ];
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setNavbarTitle("Artificial Intelligence"));
+  }, [dispatch]);
+
+  return (
+    <div className="h-screen px-12 py-6 bg-[#F4F6FA]">
+      <div className="grid grid-cols-3 gap-4 text-lg text-slate-600">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="p-4 transition-shadow duration-200 bg-white rounded-lg shadow hover:shadow-lg"
+          >
+            <h2 className="text-xl font-semibold text-slate-800">
+              {project.name}
+            </h2>
+            <p className="mt-2">{project.description}</p>
+            <a
+              href={project.href}
+              className="inline-block mt-4 text-blue-600 hover:underline"
+            >
+              View Project
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
