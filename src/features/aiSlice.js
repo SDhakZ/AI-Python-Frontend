@@ -5,6 +5,7 @@ const initialState = {
   gateResult: null,
   category: null,
   loading: false,
+  gateLoading: false,
 };
 
 export const aiSlice = createSlice({
@@ -27,15 +28,15 @@ export const aiSlice = createSlice({
         console.error("Error calculating BMI:", action.error.message);
       })
       .addCase(predictAndOr.pending, (state) => {
-        state.loading = true;
+        state.gateLoading = true;
       })
       .addCase(predictAndOr.fulfilled, (state, action) => {
         state.gateResult = action.payload.output;
-        state.loading = false;
+        state.gateLoading = false;
       })
       .addCase(predictAndOr.rejected, (state, action) => {
         state.gateResult = null;
-        state.loading = false;
+        state.gateLoading = false;
         console.error("Error predicting AND/OR:", action.error.message);
       });
   },

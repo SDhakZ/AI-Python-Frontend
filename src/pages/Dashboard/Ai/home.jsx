@@ -27,8 +27,8 @@ export default function AIHome() {
   }, [dispatch]);
 
   return (
-    <div className="h-screen px-12 py-6 bg-[#F4F6FA]">
-      <div className="grid grid-cols-3 gap-4 text-lg text-slate-600">
+    <div className="h-screen px-12 py-12 bg-[#F4F6FA]">
+      <div className="grid grid-cols-3 gap-8 text-lg text-slate-600">
         {projects.map((project) => (
           <div
             key={project.id}
