@@ -80,7 +80,7 @@ export default function PerceptronGate() {
               type="submit"
               className="w-full px-6 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600"
             >
-              {loading ? "Calculating..." : "Calculate BMI"}
+              {loading ? "Calculating..." : "Calculate Output"}
             </button>
           </div>
         </form>
