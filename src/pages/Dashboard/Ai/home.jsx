@@ -34,7 +34,7 @@ export default function AIHome() {
             key={project.id}
             className="p-4 transition-shadow duration-200 bg-white rounded-lg shadow hover:shadow-lg"
           >
-            <h2 className="text-xl font-semibold text-slate-800">
+            <h2 className="text-xl font-semibold text-slate-700">
               {project.name}
             </h2>
             <p className="mt-2">{project.description}</p>
