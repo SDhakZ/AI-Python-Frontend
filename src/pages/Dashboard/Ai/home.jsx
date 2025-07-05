@@ -9,14 +9,14 @@ export default function AIHome() {
       id: 1,
       name: "BMI Perceptron",
       description:
-        "A simple perceptron model to predict BMI based on input features with python.",
+        "A simple perceptron model to predict BMI based on input features with 1 layer perceptron in python.",
       href: "/dashboard/ai/bmi-perceptron",
     },
     {
       id: 2,
-      name: "And Or Gate Perceptron",
+      name: "Gate Perceptron",
       description:
-        "A perceptron model to predict the output of AND and OR gates based on input features with python.",
+        "Perceptron model to predict AND, OR, and XOR gate outputs based on input features with 1 layer and 3 layer perceptron for AND, OR and XOR respectively in python.",
       href: "/dashboard/ai/perceptron-gate",
     },
   ];

@@ -6,7 +6,7 @@ import { setNavbarTitle } from "../../../../features/navbarSlice";
 export default function PerceptronGate() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setNavbarTitle("And Or gate Perceptron"));
+    dispatch(setNavbarTitle("Gate Perceptron"));
   }, []);
 
   const result = useSelector((state) => state.ai.gateResult);
@@ -27,7 +27,7 @@ export default function PerceptronGate() {
     <div className="px-12 -mt-10 bg-[#F4F6FA] h-screen">
       <div className="flex flex-col items-center justify-center h-full gap-2 ">
         <h1 className="mb-4 text-2xl font-semibold">
-          Perceptron model BMI calculator
+          Perceptron model for AND, OR, and XOR gates
         </h1>
         <form className="flex w-full max-w-md" onSubmit={onClick}>
           <div className="flex flex-col items-center justify-center w-full px-10 py-10 bg-white rounded-md">
@@ -44,6 +44,7 @@ export default function PerceptronGate() {
                 </option>
                 <option value="and">AND Gate</option>
                 <option value="or">OR Gate</option>
+                <option value="xor">XOR Gate</option>
               </select>
               <label className="mb-2 text-lg font-semibold">First value</label>
               <input
@@ -87,7 +88,7 @@ export default function PerceptronGate() {
         <div className="w-full max-w-md py-2 mt-4 text-lg font-semibold text-center rounded-md text-slate-900 bg-slate-200">
           {result !== null
             ? `The output is: ${result}`
-            : "Enter your details to calculate BMI"}
+            : "Enter inputs to get the output"}
         </div>
       </div>
     </div>
