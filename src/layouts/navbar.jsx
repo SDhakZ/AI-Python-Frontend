@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <div className="overflow-hidden  bg-[#F4F6FA] h-screen">
       <nav className={`z-[999] sticky top-0 bg-white w-full border-gray-200 `}>
-        <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 py-8">
+        <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 py-9">
           <div className="flex w-full gap-6" id="navbar-default">
             {location.pathname !== "/dashboard/ai" && (
               <button
