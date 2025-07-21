@@ -9,12 +9,33 @@ export const bmi = createAsyncThunk(
       const { data } = await api.post("/api/predict/bmi", {
         weight: values.weight,
         height: heightinMeters,
+        mode: "linear",
       });
       const { bmi, category } = data;
 
       return { bmi, category };
     } catch (error) {
       console.log(error.response?.data?.error?.message);
+    }
+  }
+);
+
+export const bmiMultiLayerPerceptron = createAsyncThunk(
+  "bmi/multiLayerPerceptron",
+  async ({ values }, { rejectWithValue }) => {
+    const heightinMeters = values.height / 100; // Convert height from cm to meters
+    try {
+      const { data } = await api.post("/api/predict/bmi", {
+        weight: values.weight,
+        height: heightinMeters,
+        gender: values.gender,
+        mode: "mlp",
+      });
+      const { bmi, category } = data;
+      return { bmi, category };
+    } catch (error) {
+      console.log(error.response?.data?.error?.message);
+      return rejectWithValue(error.response?.data?.error?.message);
     }
   }
 );

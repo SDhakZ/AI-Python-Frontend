@@ -19,6 +19,13 @@ export default function AIHome() {
         "Perceptron model to predict AND, OR, and XOR gate outputs based on input features with 1 layer and 3 layer perceptron for AND, OR and XOR respectively in python.",
       href: "/dashboard/ai/perceptron-gate",
     },
+    {
+      id: 3,
+      name: "BMI Multi Layer Perceptron",
+      description:
+        "Multi-layer perceptron model to predict BMI based on input features with 3 layers in python.",
+      href: "/dashboard/ai/bmi-multi-layer-perceptron",
+    },
   ];
 
   const dispatch = useDispatch();
